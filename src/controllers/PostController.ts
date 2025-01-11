@@ -54,7 +54,7 @@ export const getPosts = asyncHandler(async(req: Request, res: Response, next: Ne
         const posts = await Posts.find(search ? searchPostQuery : {})
           .populate({
             path: "userId",
-            select: "firstName lastName location profileUrl -password",
+            select: "firstName lastName location profileUrl -password s",
           })
           .sort({ _id: -1 });
     
